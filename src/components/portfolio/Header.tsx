@@ -41,11 +41,9 @@ const Header = () => {
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home"
-  className="
-    text-2xl font-bold 
-    bg-clip-text text-transparent 
-    bg-gradient-to-r from-purple-400 to-pink-500 dark:from-white dark:to-gray-300
-  ">
+  className="text-2xl font-bold bg-clip-text text-transparent 
+             bg-gradient-to-r from-purple-600 to-pink-500 
+             dark:from-gray-100 dark:to-gray-300">
             AS
           </a>
 

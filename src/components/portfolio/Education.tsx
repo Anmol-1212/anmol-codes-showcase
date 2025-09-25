@@ -61,7 +61,7 @@ const Education = () => {
               <div 
                 key={edu.degree}
                 className={`relative flex items-center mb-16 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse md:justify-end'
                 } animate-slide-up`}
                 style={{ animationDelay: `${index * 300}ms` }}
               >
@@ -69,7 +69,7 @@ const Education = () => {
                 <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 shadow-medium"></div>
                 
                 {/* Content */}
-                <div className={`ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? '' : 'md:mr-auto'}`}>
+                <div className={`ml-16 md:ml-0 md:w-5/12 ${index % 2 === 0 ? '' : 'md:ml-auto'}`}>
                   <Card className="bg-card hover:shadow-strong transition-all duration-300 hover:-translate-y-1 border-border">
                     <CardHeader>
                       <div className="flex items-center gap-3 mb-3">

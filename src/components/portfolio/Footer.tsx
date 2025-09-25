@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
           
           <div className="mt-4 md:mt-0 text-sm text-muted-foreground">
-            <span>Built with React, TypeScript & Tailwind CSS</span>
+            {/* <span>Built with React, TypeScript & Tailwind CSS</span> */}
           </div>
         </div>
       </div>

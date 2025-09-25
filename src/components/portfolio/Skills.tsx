@@ -41,8 +41,8 @@ const Skills = () => {
     <section id="skills" className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
@@ -81,8 +81,10 @@ const Skills = () => {
         {/* Additional Info */}
         <div className="mt-16 text-center">
           <div className="bg-card rounded-2xl p-8 shadow-soft max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-              Always Learning
+            <h3 className="text-2xl font-bold mb-4 text-foreground">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                Always Learning
+              </span>
             </h3>
             <p className="text-foreground/80 text-lg">
               I'm constantly expanding my skill set and staying up-to-date with the latest 

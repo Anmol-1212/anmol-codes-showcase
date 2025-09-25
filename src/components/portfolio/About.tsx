@@ -3,8 +3,8 @@ const About = () => {
     <section id="about" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
@@ -45,29 +45,29 @@ const About = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-6 bg-card rounded-xl shadow-soft">
-                  <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent mb-2">
+                <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 group">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                     2+
                   </div>
                   <div className="text-muted-foreground text-sm">Years Learning</div>
                 </div>
                 
-                <div className="text-center p-6 bg-card rounded-xl shadow-soft">
-                  <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent mb-2">
+                <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 group">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                     5+
                   </div>
                   <div className="text-muted-foreground text-sm">Projects Built</div>
                 </div>
                 
-                <div className="text-center p-6 bg-card rounded-xl shadow-soft">
-                  <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent mb-2">
+                <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 group">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                     8+
                   </div>
                   <div className="text-muted-foreground text-sm">Technologies</div>
                 </div>
                 
-                <div className="text-center p-6 bg-card rounded-xl shadow-soft">
-                  <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent mb-2">
+                <div className="text-center p-6 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 group">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                     24/7
                   </div>
                   <div className="text-muted-foreground text-sm">Learning Mode</div>

@@ -80,8 +80,8 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
@@ -148,14 +148,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Additional Info */}
-                  <div className="bg-card p-6 rounded-lg border border-border">
-                    <h4 className="font-semibold mb-2 text-foreground">Response Time</h4>
-                    <p className="text-sm text-muted-foreground">
-                      I typically respond to messages within 24 hours. For urgent inquiries, 
-                      feel free to reach out via phone or LinkedIn.
-                    </p>
-                  </div>
                 </CardContent>
               </Card>
             </div>

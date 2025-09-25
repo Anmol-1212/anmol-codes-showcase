@@ -10,8 +10,8 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in">
           {/* Name */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Anmol Sharma
             </span>
           </h1>

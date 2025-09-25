@@ -51,8 +51,8 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
@@ -134,8 +134,10 @@ const Projects = () => {
         {/* Call to Action */}
         <div className="mt-16 text-center">
           <div className="bg-background rounded-2xl p-8 shadow-soft max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-              Want to see more?
+            <h3 className="text-2xl font-bold mb-4 text-foreground">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                Want to see more?
+              </span>
             </h3>
             <p className="text-foreground/80 text-lg mb-6">
               Check out my GitHub for more projects and contributions to open source

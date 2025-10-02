@@ -106,24 +106,24 @@ const Projects = () => {
                     </div>
                     
                     {/* Action Buttons */}
-                    <div className="flex gap-2 pt-4">
+                    {/* <div className="flex gap-2 pt-4">
                       <Button 
                         variant="outline" 
                         size="sm" 
                         className="flex-1 hover:bg-primary/10 hover:border-primary group/btn"
                       >
                         <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform duration-200" />
-                        Code
-                      </Button>
+                        Code */}
+                      {/* </Button>
                       <Button 
                         variant="outline" 
                         size="sm" 
                         className="flex-1 hover:bg-primary/10 hover:border-primary group/btn"
                       >
                         <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform duration-200" />
-                        Demo
-                      </Button>
-                    </div>
+                        Demo */}
+                      {/* </Button> */}
+                    {/* </div> */}
                   </div>
                 </CardContent>
               </Card>

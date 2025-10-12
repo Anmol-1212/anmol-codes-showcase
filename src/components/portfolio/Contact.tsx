@@ -297,7 +297,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
-import emailjs from "@emailjs/browser"; // ✅ EmailJS import
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -308,7 +308,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null); // ✅ Form reference
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -318,33 +318,153 @@ const Contact = () => {
     }));
   };
 
+  // Test function to verify EmailJS setup
+  const testEmailJS = async () => {
+    try {
+      console.log("=== EmailJS Configuration Debug ===");
+      console.log("Service ID:", "service_3t12ss9");
+      console.log("Template ID:", "template_zgjinip");
+      console.log("Public Key:", "BgS2l7nM84SGrJr9T");
+      console.log("Testing EmailJS connection...");
+      
+      const testParams = {
+        name: "Test User",
+        email: "test@example.com",
+        subject: "Test Message",
+        message: "This is a test message to verify EmailJS is working.",
+      };
+      
+      console.log("Template parameters being sent:", testParams);
+      
+      const result = await emailjs.send(
+        "service_3t12ss9",     // Your EmailJS Service ID
+        "template_zgjinip", 
+        testParams,
+        "BgS2l7nM84SGrJr9T"
+      );
+      
+      console.log("Test email sent successfully:", result);
+      toast({
+        title: "✅ Test Email Sent!",
+        description: "EmailJS is working correctly! Check your email at anmoll.sharma.12@gmail.com",
+      });
+    } catch (error) {
+      console.error("Test email failed:", error);
+      toast({
+        title: "❌ Test Failed",
+        description: `EmailJS test failed: ${error instanceof Error ? error.message : String(error)}`,
+        variant: "destructive",
+      });
+    }
+  };
+
+  // Function to verify template variables
+  const verifyTemplateVariables = () => {
+    const requiredVariables = ['name', 'email', 'subject', 'message'];
+    
+    console.log("=== EmailJS Template Verification ===");
+    console.log("Required template variables:", requiredVariables);
+    console.log("Current form data structure:", {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message
+    });
+    console.log("Your EmailJS template should use these variables:");
+    requiredVariables.forEach(variable => {
+      console.log(`- {{${variable}}}`);
+    });
+    console.log("NOT ${variable} (JavaScript template literals)");
+    
+    toast({
+      title: "📋 Template Variables Check",
+      description: "Check console for required template variables. Make sure your EmailJS template uses {{variable}} syntax.",
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // ✅ Send email with EmailJS
-    emailjs.sendForm(
-      "service_3t12ss9",     // replace with EmailJS Service ID
-      "template_zgjinip",    // replace with EmailJS Template ID
-      formRef.current!,
-      "BgS2l7nM84SGrJr9T"      // replace with EmailJS Public Key
-    )
-    .then(() => {
+    try {
+      console.log("=== EmailJS Debug Info ===");
+      console.log("Form data being sent:", formData);
+      console.log("Form ref:", formRef.current);
+      console.log("EmailJS available:", typeof emailjs);
+      
+      // Validate form data
+      if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+        throw new Error("All fields are required");
+      }
+
+      // Try alternative method using send instead of sendForm
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      console.log("Template params:", templateParams);
+      
+      // Send email using EmailJS send method
+      const result = await emailjs.send(
+        "service_uny6cgf",     // Your EmailJS Service ID
+        "template_zgjinip",    // Your EmailJS Template ID
+        templateParams,        // Template parameters
+        "BgS2l7nM84SGrJr9T"    // Your EmailJS Public Key
+      );
+
+      console.log("=== SUCCESS ===");
+      console.log("Email sent successfully:", result);
+      console.log("Response status:", result.status);
+      console.log("Response text:", result.text);
+      
       toast({
         title: "✅ Message Sent!",
         description: "Thank you for reaching out. I'll get back to you soon!",
       });
+      
+      // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setIsSubmitting(false);
-    })
-    .catch((error) => {
+      
+    } catch (error) {
+      console.error("=== EmailJS Error Details ===");
+      console.error("Full error object:", error);
+      console.error("Error message:", error instanceof Error ? error.message : String(error));
+      console.error("Error stack:", error instanceof Error ? error.stack : 'No stack trace');
+      
+      // More detailed error handling
+      let errorMessage = "Failed to send message. Please try again.";
+      
+      if (error instanceof Error) {
+        console.error("Error details:", {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        });
+        
+        if (error.message.includes("Invalid template")) {
+          errorMessage = "Email template configuration error. Please contact support.";
+        } else if (error.message.includes("Invalid service")) {
+          errorMessage = "Email service configuration error. Please contact support.";
+        } else if (error.message.includes("Invalid user")) {
+          errorMessage = "Email service authentication error. Please contact support.";
+        } else if (error.message.includes("Network")) {
+          errorMessage = "Network error. Please check your internet connection.";
+        } else {
+          errorMessage = `Error: ${error.message}`;
+        }
+      }
+      
       toast({
         title: "❌ Error",
-        description: "Message could not be sent. Please try again.",
+        description: errorMessage,
+        variant: "destructive",
       });
-      console.error("EmailJS Error:", error);
+    } finally {
       setIsSubmitting(false);
-    });
+    }
   };
 
   const contactInfo = [
@@ -446,7 +566,7 @@ const Contact = () => {
                         <Label htmlFor="name">Full Name</Label>
                         <Input
                           id="name"
-                          name="full_name"   // ✅ must match EmailJS template
+                          name="name"
                           type="text"
                           value={formData.name}
                           onChange={handleInputChange}
@@ -498,19 +618,23 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full gradient-primary text-white hover:scale-105 transition-all duration-300"
-                      size="lg"
-                    >
-                      {isSubmitting ? "Sending..." : (
-                        <>
-                          <Send className="w-4 h-4 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
+                    <div className="space-y-3">
+                      <Button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full gradient-primary text-white hover:scale-105 transition-all duration-300"
+                        size="lg"
+                      >
+                        {isSubmitting ? "Sending..." : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" />
+                            Send Message
+                          </>
+                        )}
+                      </Button>
+                      
+                      
+                    </div>
                   </form>
                 </CardContent>
               </Card>

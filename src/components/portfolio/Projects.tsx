@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Brain, Activity, Ship, TrendingUp, Building } from "lucide-react";
+import { ExternalLink, Github, Brain, Activity, Ship, TrendingUp, Building, CloudSun } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -43,6 +43,14 @@ const Projects = () => {
       icon: Building,
       technologies: ["HTML5", "CSS3", "JavaScript", "Django"],
       category: "Web Development",
+      gradient: "from-indigo-500 to-purple-500",
+    },
+    {
+      title: "Weatherly",
+      description: "Weatherly — A real-time weather forecasting web app that displays live temperature, humidity, and wind data using the OpenWeatherMap API.",
+      icon: CloudSun,
+      technologies: ["HTML5", "CSS3", "JavaScript", "Django", "API", "SQLite"],
+      category: "Full Stack Web Development",
       gradient: "from-indigo-500 to-purple-500",
     },
   ];

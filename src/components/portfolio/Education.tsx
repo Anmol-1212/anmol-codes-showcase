@@ -9,7 +9,7 @@ const Education = () => {
       institution: "Amity University",
       location: "Greater Noida",
       duration: "2023 - 2026",
-      status: "Pursuing",
+      status: "Completed",
       description: "Focused on software development, data structures, algorithms, and machine learning. Active participation in coding competitions and technical projects.",
       highlights: [
         "Computer Science Fundamentals",
